@@ -9,7 +9,7 @@ interface ILocalTranslationRepository {
         targetLanguage: String,
     ): Translation?
 
-    fun insertTranslation(
+    suspend fun insertTranslation(
         text: String,
         sourceLanguage: String,
         targetLanguage: String,

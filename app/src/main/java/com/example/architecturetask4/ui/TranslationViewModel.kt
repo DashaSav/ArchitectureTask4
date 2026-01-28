@@ -29,10 +29,10 @@ class TranslationViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _uiState.update { UiState.Loading }
-            val res = usecase(text)
+                 val res = usecase(text)
                 _uiState.update { UiState.Result(res) }
             } catch (e: Throwable){
-                _uiState.update { UiState.Error("300", e.message) }
+                _uiState.update { UiState.Error("500", e.message) }
             }
         }
     }

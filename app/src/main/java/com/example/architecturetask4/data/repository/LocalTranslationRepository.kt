@@ -13,13 +13,13 @@ class LocalTranslationRepository @Inject constructor(
     private val localDataSource: LocalDataSource
 ): ILocalTranslationRepository {
 
-    override fun insertTranslation(
+    override suspend fun insertTranslation(
         text: String,
         sourceLanguage: String,
         targetLanguage: String,
         translation: String,
         time: Long
-    ) {
+    ) = withContext(Dispatchers.IO) {
         val dto = TranslationDto(
             text = text,
             sourceLanguage = sourceLanguage,
